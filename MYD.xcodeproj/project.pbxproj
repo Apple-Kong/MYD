@@ -16,6 +16,7 @@
 		C0BEF080281E4D4700128206 /* MYDUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BEF07F281E4D4700128206 /* MYDUITestsLaunchTests.swift */; };
 		C0BEF08D281E4E1000128206 /* PreferenceButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BEF08C281E4E1000128206 /* PreferenceButtonView.swift */; };
 		C0BEF08F281E523000128206 /* MusicButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BEF08E281E523000128206 /* MusicButtonView.swift */; };
+		C0BEF091281E77F300128206 /* DiagonalFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BEF090281E77F300128206 /* DiagonalFrame.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,7 @@
 		C0BEF07F281E4D4700128206 /* MYDUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MYDUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		C0BEF08C281E4E1000128206 /* PreferenceButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceButtonView.swift; sourceTree = "<group>"; };
 		C0BEF08E281E523000128206 /* MusicButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicButtonView.swift; sourceTree = "<group>"; };
+		C0BEF090281E77F300128206 /* DiagonalFrame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiagonalFrame.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 				C0BEF064281E4D4600128206 /* ContentView.swift */,
 				C0BEF08C281E4E1000128206 /* PreferenceButtonView.swift */,
 				C0BEF08E281E523000128206 /* MusicButtonView.swift */,
+				C0BEF090281E77F300128206 /* DiagonalFrame.swift */,
 				C0BEF066281E4D4700128206 /* Assets.xcassets */,
 				C0BEF068281E4D4700128206 /* Preview Content */,
 			);
@@ -264,6 +267,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C0BEF08F281E523000128206 /* MusicButtonView.swift in Sources */,
+				C0BEF091281E77F300128206 /* DiagonalFrame.swift in Sources */,
 				C0BEF065281E4D4600128206 /* ContentView.swift in Sources */,
 				C0BEF08D281E4E1000128206 /* PreferenceButtonView.swift in Sources */,
 				C0BEF063281E4D4600128206 /* MYDApp.swift in Sources */,
