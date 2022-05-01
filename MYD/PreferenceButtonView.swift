@@ -13,10 +13,8 @@ struct PreferenceButtonView: View {
     
     var body: some View {
         ZStack {
-            RoundedRectangle(cornerRadius: 10)
-                .fill(Color("Container"))
-                .frame(height: 64)
-            
+        
+            Color("Container")
                 
             Text(text)
                 .foregroundColor(.white)
@@ -24,6 +22,8 @@ struct PreferenceButtonView: View {
                 .fontWeight(.bold)
                 
         }
+        .frame(height: 64)
+        .cornerRadius(10)
     }
 }
 
