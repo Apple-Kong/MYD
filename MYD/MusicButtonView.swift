@@ -75,6 +75,7 @@ struct MusicButtonView_Previews: PreviewProvider {
                 .previewLayout(.sizeThatFits)
             
             MusicGrid()
+                .preferredColorScheme(.dark)
         }
     }
 }
@@ -82,20 +83,48 @@ struct MusicButtonView_Previews: PreviewProvider {
 struct MusicGrid: View {
     
     //간격 한번에 설정하기 위한 변수
-    var totalSpacing: CGFloat = 14
+    var totalSpacing: CGFloat = 20
     
     var body: some View {
-        ScrollView {
-            LazyVGrid(columns: [
-                GridItem(.flexible(), spacing: totalSpacing),
-                GridItem(.flexible())
-            ], spacing: totalSpacing) {
-                ForEach(0..<20) { item in
-                    MusicButtonView(text: "R&B", isSelected: .constant(false))
+        VStack {
+                
+            ScrollView {
+                
+                LazyVGrid(columns: [
+                    GridItem(.flexible(), spacing: totalSpacing),
+                    GridItem(.flexible())
+                ], spacing: totalSpacing,
+                          pinnedViews: [.sectionHeaders]
+                ) {
+                    Section {
+                        ForEach(0..<20) { item in
+                            MusicButtonView(text: "R&B", isSelected: .constant(false))
+                        }
+                    } header: {
+                        HStack {
+                            Text("음악 취향")
+                                .font(.largeTitle)
+                                .fontWeight(.bold)
+                            .foregroundColor(.white)
+                            
+                            Text("3개 선택")
+                                .fontWeight(.semibold)
+                                .foregroundColor(.white)
+
+                            Spacer()
+                        }
+                        .frame(height: 60)
+                        .background(Color("background")
+                        .opacity(0.8))
+                        .edgesIgnoringSafeArea(.top)
+                        
+                    }
                 }
+            .padding(.horizontal, totalSpacing)
             }
-        .padding(.horizontal, totalSpacing)
+            .background(Color("background"))
         }
+        
     }
 }
 
