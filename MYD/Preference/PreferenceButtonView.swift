@@ -22,7 +22,7 @@ struct PreferenceButtonView: View {
                 .fontWeight(.bold)
                 
         }
-        .frame(height: 64)
+        .frame(height: 54)
         .cornerRadius(10)
     }
 }
