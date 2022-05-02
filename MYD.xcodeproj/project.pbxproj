@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C03EC8AA281F7C1000B3ECD0 /* VideoSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03EC8A9281F7C1000B3ECD0 /* VideoSliderView.swift */; };
+		C03EC8AC281F7C2500B3ECD0 /* VideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03EC8AB281F7C2500B3ECD0 /* VideoView.swift */; };
 		C0BEF063281E4D4600128206 /* MYDApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BEF062281E4D4600128206 /* MYDApp.swift */; };
 		C0BEF065281E4D4600128206 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BEF064281E4D4600128206 /* ContentView.swift */; };
 		C0BEF067281E4D4700128206 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0BEF066281E4D4700128206 /* Assets.xcassets */; };
@@ -37,6 +39,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C03EC8A9281F7C1000B3ECD0 /* VideoSliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoSliderView.swift; sourceTree = "<group>"; };
+		C03EC8AB281F7C2500B3ECD0 /* VideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoView.swift; sourceTree = "<group>"; };
 		C0BEF05F281E4D4600128206 /* MYD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MYD.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0BEF062281E4D4600128206 /* MYDApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MYDApp.swift; sourceTree = "<group>"; };
 		C0BEF064281E4D4600128206 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -105,6 +109,8 @@
 				C0BEF08C281E4E1000128206 /* PreferenceButtonView.swift */,
 				C0BEF08E281E523000128206 /* MusicButtonView.swift */,
 				C0BEF090281E77F300128206 /* DiagonalFrame.swift */,
+				C03EC8A9281F7C1000B3ECD0 /* VideoSliderView.swift */,
+				C03EC8AB281F7C2500B3ECD0 /* VideoView.swift */,
 				C0BEF066281E4D4700128206 /* Assets.xcassets */,
 				C0BEF068281E4D4700128206 /* Preview Content */,
 			);
@@ -267,10 +273,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				C0BEF08F281E523000128206 /* MusicButtonView.swift in Sources */,
+				C03EC8AC281F7C2500B3ECD0 /* VideoView.swift in Sources */,
 				C0BEF091281E77F300128206 /* DiagonalFrame.swift in Sources */,
 				C0BEF065281E4D4600128206 /* ContentView.swift in Sources */,
 				C0BEF08D281E4E1000128206 /* PreferenceButtonView.swift in Sources */,
 				C0BEF063281E4D4600128206 /* MYDApp.swift in Sources */,
+				C03EC8AA281F7C1000B3ECD0 /* VideoSliderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
