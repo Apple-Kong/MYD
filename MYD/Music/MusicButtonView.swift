@@ -20,22 +20,25 @@ struct MusicButtonView: View {
         
         Button {
             if items.contains(item) {
+                
                 items.removeAll { $0 == item }
             } else {
-                items.append(item)
+                if items.count < 3 {
+                    items.append(item)
+                }
             }
             print(items)
         } label: {
             ZStack {
-                Image("boombap")
+                Image(item.rawValue)
                     .resizable()
                     .clipShape(
                         DiagonalFrame()
-                )
+                    )
                 
                 VStack {
                     HStack {
-                        Text(item.rawValue)
+                        Text(item.koreanText)
                             .font(.title3)
                             .fontWeight(.bold)
                             .foregroundColor(.white)
@@ -74,15 +77,7 @@ extension View {
 struct MusicButtonView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-//            MusicButtonView(text: "R&B", isSelected: .constant(false))
-//                .frame(height: 140)
-//                .previewLayout(.sizeThatFits)
-//
-//
-//            MusicButtonView(text: "R&B", isSelected: .constant(true))
-//                .frame(height: 140)
-//                .previewLayout(.sizeThatFits)
-            
+
             MusicGrid()
                 .preferredColorScheme(.dark)
         }

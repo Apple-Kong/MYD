@@ -114,7 +114,6 @@
 				C0EE6A36281FC9180055B716 /* Video */,
 				C0EE6A34281FBDDB0055B716 /* Info.plist */,
 				C0BEF062281E4D4600128206 /* MYDApp.swift */,
-				C0BEF064281E4D4600128206 /* ContentView.swift */,
 				C0BEF066281E4D4700128206 /* Assets.xcassets */,
 				C0BEF068281E4D4700128206 /* Preview Content */,
 				C0EE6A32281FA0150055B716 /* ContentViewModel.swift */,
@@ -169,6 +168,7 @@
 		C0EE6A37281FC9240055B716 /* Preference */ = {
 			isa = PBXGroup;
 			children = (
+				C0BEF064281E4D4600128206 /* ContentView.swift */,
 				C0BEF08C281E4E1000128206 /* PreferenceButtonView.swift */,
 			);
 			path = Preference;

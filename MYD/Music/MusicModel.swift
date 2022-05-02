@@ -8,10 +8,24 @@
 import Foundation
 
 enum MusicGenre: String, CaseIterable, Equatable {
+    case Boombap
     case RnB
-    case 트랩
-    case 붐뱁
+    case Trap
     case KPOP
     case POP
-    case 락
+    case Rock
+    
+    
+    var koreanText: String {
+        switch self {
+        case .Trap:
+            return "트랩"
+        case .Boombap:
+            return "붐뱁"
+        case .Rock:
+            return "락"
+        default:
+            return self.rawValue
+        }
+    }
 }

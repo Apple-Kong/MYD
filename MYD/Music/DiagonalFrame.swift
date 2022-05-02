@@ -7,8 +7,6 @@
 
 import SwiftUI
 
-
-
 struct DiagonalFrame: Shape {
     func path(in rect: CGRect) -> Path {
         var path = Path()
@@ -35,8 +33,6 @@ struct DiagonalFrame_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             DiagonalFrame()
-                
-            
             
             Image("boombap")
                 .resizable()

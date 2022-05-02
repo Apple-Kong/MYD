@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     
-    
+    // 선택한 선택지를 담는 어레이 구현 필요 [ ]
     
     
     var body: some View {
