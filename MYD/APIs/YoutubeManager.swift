@@ -71,7 +71,7 @@ class YoutubeManager {
         
         let parameters: [String: String] = [
             "key" : "AIzaSyC9mBcLMbYAyXvTaSddxzS3HYsCh1Z6MHo",
-            "part" : "snippet,contentDetails,statistics",
+            "part" : "snippet",
             "id" : idString
         ]
         
@@ -79,15 +79,45 @@ class YoutubeManager {
             .responseString { response in
                 print("DEBUG: \(response)")
             }
+            .responseDecodable(of: VideoInfosResponse.self) { response in
+                switch response.result {
+                case .success(let response):
+                    for item in response.items {
+                        print("DEBUG: Video title is... \(item)")
+                    }
+                    
+                case .failure(let error):
+                    print("DEBUG: \(error.localizedDescription)")
+                }
+            }
         //Decoding 할 예정
     }
 }
 
-struct VideoInfo {
-    //Youtube video 파싱 모델
+
+
+
+//Youtube video 파싱 모델
+// MARK: - DetailResponse2
+struct VideoInfosResponse: Codable {
     
+      let kind: String
+      let etag: String
+      let nextPageToken: String
+      let prevPageToken: String
+      let pageInfo: PageInfo
+      let items: [Video]
     
+    struct PageInfo: Codable {
+        let totalResults: Int
+        let resultsPerPage: Int
+    }
     
+    struct Video: Codable {
+        //구현중... [ ]
+    }
 }
 
-
+struct VideoInfo {
+    
+}
