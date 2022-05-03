@@ -10,13 +10,10 @@ import SwiftUI
 struct ContentView: View {
     
     // 선택한 선택지를 담는 어레이 구현 필요 [ ]
-    
-    
     var body: some View {
         VStack {
             
             Spacer()
-            
             
             VStack {
                 Text("Q.")
@@ -30,9 +27,7 @@ struct ContentView: View {
                     .foregroundColor(.white)
             }
             
-            
             Spacer()
-            
         
             VStack {
                 Button {

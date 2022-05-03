@@ -93,6 +93,7 @@ struct MusicGrid: View {
     //간격 한번에 설정하기 위한 변수
     var totalSpacing: CGFloat = 20
     
+    
     @State var selectedItems: [MusicGenre] = []
     
     var body: some View {
@@ -142,6 +143,9 @@ struct MusicGrid: View {
                 VStack {
                     Button {
                         print("DEBUG: button is tapped")
+                        
+                        
+                        
                     } label: {
                         Text("다음")
                             .font(.title2)

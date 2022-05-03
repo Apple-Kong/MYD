@@ -9,7 +9,7 @@ import SwiftUI
 
 struct TutorialButton: View {
     
-    
+    // button action
     var action: () -> Void
     
     var body: some View {

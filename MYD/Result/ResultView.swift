@@ -12,6 +12,8 @@ struct ResultView: View {
     //좌우 여백 크기
     let hInset: CGFloat = 20
     
+    let viewModel = ResultViewModel()
+    
     var body: some View {
         
         
@@ -53,17 +55,17 @@ struct ResultView: View {
             .padding(.leading, hInset)
             .padding(.top, 20)
             
-            
+            // 수평 스크롤 뷰
             ScrollView(.horizontal, showsIndicators: false) {
-                // 수평 스크롤 뷰
-                
                 LazyHGrid(rows: [
                     GridItem(.fixed(200), spacing: 20)
-                        
                 ], spacing: 30) {
                     HStack {
                         TutorialButton {
                             print("DEBUG: button tapped")
+                            
+                            viewModel.getVideoData()
+                            
                         }
                         TutorialButton {
                             print("DEBUG: button tapped")

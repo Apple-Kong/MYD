@@ -11,7 +11,7 @@ import SwiftUI
 struct MYDApp: App {
     var body: some Scene {
         WindowGroup {
-            MusicGrid()
+            ResultView()
                 .preferredColorScheme(.dark)
         }
     }
