@@ -8,6 +8,9 @@
 import SwiftUI
 
 
+class MusicViewModel: ObservableObject {
+    @Published var items: [MusicGenre] = []
+}
 
 struct MusicButtonView: View {
     

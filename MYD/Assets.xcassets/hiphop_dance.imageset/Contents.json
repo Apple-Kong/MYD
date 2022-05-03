@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "hiphop_dance.jpg",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
