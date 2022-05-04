@@ -73,7 +73,7 @@ struct ContentView: View {
                 Spacer()
                 
                 NavigationLink {
-                    MusicGrid()
+                    MusicPreferenceView()
                 } label: {
                     Text("다음")
                         .font(.title2)
