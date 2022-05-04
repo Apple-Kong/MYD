@@ -57,33 +57,38 @@ class YoutubeManager {
     }
     
     // 가져온 비디오 아이디의 목록으로 자세한 비디오 정보를 가져오는 비디오 인포
-    func fetchVideoInfoList(videoIDs: [VideoID], completion: @escaping ([VideoResponse], Error?) -> Void) {
+    func fetchVideoInfoList(videoIDs: [VideoID], completion: @escaping ([YoutubeSearchList], Error?) -> Void) {
         
-        var idString = ""
-        
-        for id in videoIDs {
-            idString.append(id)
-        
-            if id != videoIDs.last {
-                idString.append(contentsOf: ",")
-            }
-        }
+//        var idString = ""
+//
+//        for id in videoIDs {
+//            idString.append(id)
+//
+//            if id != videoIDs.last {
+//                idString.append(contentsOf: ",")
+//            }
+//        }
         
         let parameters: [String: String] = [
             "key" : "AIzaSyC9mBcLMbYAyXvTaSddxzS3HYsCh1Z6MHo",
+            "type" : "video",
+            "maxResults" : "15",
             "part" : "snippet",
-            "id" : idString
+            "q" : "hiphop dance tutorial",
+            "regionCode" : "US"
         ]
         
-        AF.request(Constant.YOUTUBE_URL_VIDEO, method: .get, parameters: parameters, encoder: URLEncodedFormParameterEncoder.default)
+        AF.request(Constant.YOUTUBE_URL_SEARCH, method: .get, parameters: parameters, encoder: URLEncodedFormParameterEncoder.default)
             .responseString { response in
                 print("DEBUG: \(response)")
             }
-            .responseDecodable(of: VideoResponse.self) { response in
+            .responseDecodable(of: YoutubeSearchList.self) { response in
                 switch response.result {
                 case .success(let response):
+                    
+                    
                     for item in response.items {
-                        print("DEBUG: Video title is... \(item)")
+                        print("DEUBG: 동영상 제목 : \(item.snippet.title)")
                     }
                     
                 case .failure(let error):
@@ -95,69 +100,47 @@ class YoutubeManager {
 }
 
 
-
-
-// MARK: - VideoResponse
-struct VideoResponse: Codable {
-    let kind, etag: String
-    let nextPageToken: String?
-    let prevPageToken: String?
-    let items: [VideoItem]
-    let pageInfo: PageInfo
+struct YoutubeSearchList: Codable {
+    let kind: String
+    let etag: String
+    let nextPageToken: String
+    let regionCode: String
+    let items: [YouTubeSearchItem]
 }
 
-// MARK: - Item
-struct VideoItem: Codable {
-    let kind, etag, id: String
+struct YouTubeSearchItem: Codable {
+    let id: YouTubeId
     let snippet: Snippet
 }
 
-// MARK: - Snippet
+struct YouTubeId: Codable {
+    let kind: String
+    let videoId: String
+}
+
 struct Snippet: Codable {
-    let publishedAt: Date
-    let channelID, title, snippetDescription: String
-    let thumbnails: Thumbnails
-    let channelTitle: String
-    let tags: [String]
-    let categoryID, liveBroadcastContent: String
-    let localized: Localized
-    let defaultAudioLanguage: String?
-
-    enum CodingKeys: String, CodingKey {
-        case publishedAt
-        case channelID = "channelId"
-        case title
-        case snippetDescription = "description"
-        case thumbnails, channelTitle, tags
-        case categoryID = "categoryId"
-        case liveBroadcastContent, localized, defaultAudioLanguage
-    }
+    let title: String
+    let description: String
+    let thumbnails: ThumbnailInfo
 }
 
-// MARK: - Localized
-struct Localized: Codable {
-    let title, localizedDescription: String
-
-    enum CodingKeys: String, CodingKey {
-        case title
-        case localizedDescription = "description"
-    }
+struct ThumbnailInfo: Codable {
+    let `default`: ThumbDefaultInfo?
+    let high: ThumbHighInfo?
 }
 
-// MARK: - Thumbnails
-struct Thumbnails: Codable {
-    //이부분이 문제인 듯함
-    let thumbnailsDefault, medium, high, standard: Default?
-    let maxres: Default?
-
-    enum CodingKeys: String, CodingKey {
-        case thumbnailsDefault = "default"
-        case medium, high, standard, maxres
-    }
-}
-
-// MARK: - Default
-struct Default: Codable {
+struct ThumbDefaultInfo: Codable {
     let url: String
-    let width, height: Int
+    let width: Int
+    let height: Int
 }
+
+struct ThumbHighInfo: Codable {
+    let url: String
+    let width: Int
+    let height: Int
+}
+
+
+
+
