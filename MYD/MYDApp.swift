@@ -7,6 +7,9 @@
 
 import SwiftUI
 
+
+var 워니 = "오전"
+
 @main
 struct MYDApp: App {
     var body: some Scene {

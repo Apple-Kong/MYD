@@ -57,7 +57,7 @@ class YoutubeManager {
     }
     
     // 가져온 비디오 아이디의 목록으로 자세한 비디오 정보를 가져오는 비디오 인포
-    func fetchVideoInfoList(videoIDs: [VideoID], completion: @escaping ([VideoInfo], Error?) -> Void) {
+    func fetchVideoInfoList(videoIDs: [VideoID], completion: @escaping ([VideoResponse], Error?) -> Void) {
         
         var idString = ""
         
@@ -79,7 +79,7 @@ class YoutubeManager {
             .responseString { response in
                 print("DEBUG: \(response)")
             }
-            .responseDecodable(of: VideoInfosResponse.self) { response in
+            .responseDecodable(of: VideoResponse.self) { response in
                 switch response.result {
                 case .success(let response):
                     for item in response.items {
@@ -97,27 +97,67 @@ class YoutubeManager {
 
 
 
-//Youtube video 파싱 모델
-// MARK: - DetailResponse2
-struct VideoInfosResponse: Codable {
-    
-      let kind: String
-      let etag: String
-      let nextPageToken: String
-      let prevPageToken: String
-      let pageInfo: PageInfo
-      let items: [Video]
-    
-    struct PageInfo: Codable {
-        let totalResults: Int
-        let resultsPerPage: Int
-    }
-    
-    struct Video: Codable {
-        //구현중... [ ]
+// MARK: - VideoResponse
+struct VideoResponse: Codable {
+    let kind, etag: String
+    let nextPageToken: String?
+    let prevPageToken: String?
+    let items: [VideoItem]
+    let pageInfo: PageInfo
+}
+
+// MARK: - Item
+struct VideoItem: Codable {
+    let kind, etag, id: String
+    let snippet: Snippet
+}
+
+// MARK: - Snippet
+struct Snippet: Codable {
+    let publishedAt: Date
+    let channelID, title, snippetDescription: String
+    let thumbnails: Thumbnails
+    let channelTitle: String
+    let tags: [String]
+    let categoryID, liveBroadcastContent: String
+    let localized: Localized
+    let defaultAudioLanguage: String?
+
+    enum CodingKeys: String, CodingKey {
+        case publishedAt
+        case channelID = "channelId"
+        case title
+        case snippetDescription = "description"
+        case thumbnails, channelTitle, tags
+        case categoryID = "categoryId"
+        case liveBroadcastContent, localized, defaultAudioLanguage
     }
 }
 
-struct VideoInfo {
-    
+// MARK: - Localized
+struct Localized: Codable {
+    let title, localizedDescription: String
+
+    enum CodingKeys: String, CodingKey {
+        case title
+        case localizedDescription = "description"
+    }
+}
+
+// MARK: - Thumbnails
+struct Thumbnails: Codable {
+    //이부분이 문제인 듯함
+    let thumbnailsDefault, medium, high, standard: Default?
+    let maxres: Default?
+
+    enum CodingKeys: String, CodingKey {
+        case thumbnailsDefault = "default"
+        case medium, high, standard, maxres
+    }
+}
+
+// MARK: - Default
+struct Default: Codable {
+    let url: String
+    let width, height: Int
 }

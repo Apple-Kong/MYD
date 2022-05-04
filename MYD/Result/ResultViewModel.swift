@@ -12,7 +12,7 @@ class ResultViewModel: ObservableObject {
     
     let manager = YoutubeManager()
     
-    @Published var videos: [VideoInfo] = []
+    @Published var videos: [VideoResponse] = []
     
     var resultGenre = ""
     
