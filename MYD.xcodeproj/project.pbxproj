@@ -144,18 +144,16 @@
 		C0BEF061281E4D4600128206 /* MYD */ = {
 			isa = PBXGroup;
 			children = (
+				C0EE6A34281FBDDB0055B716 /* Info.plist */,
+				C0BEF062281E4D4600128206 /* MYDApp.swift */,
+				C0BEF066281E4D4700128206 /* Assets.xcassets */,
 				C0909B182822B24000F2585F /* Constant */,
-				C0909B152822B18800F2585F /* Models */,
 				C0F988CE2820F3E900997E93 /* APIs */,
 				C0F988C02820B41E00997E93 /* Result */,
 				C0EE6A37281FC9240055B716 /* Preference */,
 				C0EE6A35281FC9080055B716 /* Music */,
 				C0EE6A36281FC9180055B716 /* Video */,
-				C0EE6A34281FBDDB0055B716 /* Info.plist */,
-				C0BEF062281E4D4600128206 /* MYDApp.swift */,
-				C0BEF066281E4D4700128206 /* Assets.xcassets */,
 				C0BEF068281E4D4700128206 /* Preview Content */,
-				C0EE6A32281FA0150055B716 /* ContentViewModel.swift */,
 			);
 			path = MYD;
 			sourceTree = "<group>";
@@ -209,6 +207,7 @@
 			children = (
 				C0BEF064281E4D4600128206 /* ContentView.swift */,
 				C0BEF08C281E4E1000128206 /* PreferenceButtonView.swift */,
+				C0EE6A32281FA0150055B716 /* ContentViewModel.swift */,
 			);
 			path = Preference;
 			sourceTree = "<group>";
@@ -219,6 +218,7 @@
 				C0F988C12820B42A00997E93 /* ResultView.swift */,
 				C0F988C32820B71800997E93 /* TutorialButton.swift */,
 				C0F988CC2820F38500997E93 /* ResultViewModel.swift */,
+				C0909B152822B18800F2585F /* Models */,
 			);
 			path = Result;
 			sourceTree = "<group>";

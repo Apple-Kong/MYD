@@ -55,6 +55,9 @@ class YoutubeManager {
         ]
         
         AF.request(Constant.search, method: .get, parameters: parameters, encoder: URLEncodedFormParameterEncoder.default)
+            .responseString(completionHandler: { response in
+                print("DEBUG: \(response)")
+            })
             .responseDecodable(of: YoutubeSearchList.self) { response in
                 switch response.result {
                 case .success(let response):

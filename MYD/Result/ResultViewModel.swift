@@ -31,7 +31,7 @@ class ResultViewModel: ObservableObject {
             var result: [YoutubeVideo] = []
             
             for item in items {
-                result.append(YoutubeVideo(title: item.snippet.title, channel: nil, thumbnailUrlString: item.snippet.thumbnails.high?.url))
+                result.append(YoutubeVideo(id: item.id.videoId, title: item.snippet.title, channel: nil, thumbnailUrlString: item.snippet.thumbnails.high?.url))
             }
             
             self.videos = result

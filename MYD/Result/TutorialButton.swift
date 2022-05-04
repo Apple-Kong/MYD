@@ -7,10 +7,14 @@
 
 import SwiftUI
 
+
 struct TutorialButton: View {
     
+    
+    var info: YoutubeVideo?
     // button action
     var action: () -> Void
+   
     
     var body: some View {
         
@@ -18,38 +22,48 @@ struct TutorialButton: View {
             action()
         } label: {
             VStack(alignment: .leading) {
-                Text("C-Walk")
+                
+                Text(info?.title ?? "")
                     .foregroundColor(.white)
-                    .font(.title3)
+                    .font(.body)
                     .fontWeight(.bold)
-                    .padding(.leading, 12)
-                    .padding(.top, 20)
-                
-                Text("이것은 유튜브 영상의 제목")
-                    .font(.footnote)
-                    .foregroundColor(.white)
-                    .fontWeight(.semibold)
-                    .lineLimit(1)
-                    .padding(.leading, 12)
-                
+                    .lineLimit(2)
+                    
+                    .multilineTextAlignment(.leading)
+                    .padding(.horizontal, 10)
+                    .padding(.top, 14)
+                    
+                    
+                    
+
                 Spacer()
                     
-                Image("RnB")
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .frame(height: 100)
+                //이미지 비동기 호출 및 플레이스홀더
+                AsyncImage(url: info?.thumbnailURL) { image in
+                    image
+                        .resizable()
+                        .scaledToFill()
+                } placeholder: {
+                    Rectangle()
+                        .fill(.gray)
+                }
+                .frame(height: 100)
+              
+
             }
-            .frame(width: 160, height: 200)
+            .frame(width: 180, height: 190)
             .background(Color("Container"))
+            
             .cornerRadius(10)
+            
         }
     }
 }
 
 struct TutorialButton_Previews: PreviewProvider {
     static var previews: some View {
-        TutorialButton {
-            // Button tap
+        TutorialButton(info: YoutubeVideo(id: "", title: "Video title can be long as this so watch out!!", channel: nil, thumbnailUrlString: nil )) {
+            
         }
         .previewLayout(.sizeThatFits)
     }

@@ -7,12 +7,16 @@
 
 import Foundation
 
-struct YoutubeVideo {
+struct YoutubeVideo: Hashable, Identifiable {
+ 
+    
     
     //MARK: - Stored
+    let id: String
     let title: String
     let channel: String?
     let thumbnailUrlString: String?
+    
     
     //MARK: - Computed
     var thumbnailURL: URL? {

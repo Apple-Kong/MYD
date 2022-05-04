@@ -8,11 +8,10 @@
 import SwiftUI
 
 struct ResultView: View {
+    @Environment(\.openURL) var openURL
+    @StateObject var viewModel = ResultViewModel()
     
-    //좌우 여백 크기
-    let hInset: CGFloat = 20
-    
-    let viewModel = ResultViewModel()
+    let hInset: CGFloat = 20 // 좌우 여백
     
     var body: some View {
         
@@ -59,31 +58,33 @@ struct ResultView: View {
             ScrollView(.horizontal, showsIndicators: false) {
                 LazyHGrid(rows: [
                     GridItem(.fixed(200), spacing: 20)
-                ], spacing: 30) {
-                    HStack {
-                        TutorialButton {
-                            print("DEBUG: button tapped")
+                ], spacing: 20) {
+                
+                    TutorialButton(info: YoutubeVideo(id: "ujREEgxEP7g", title: "3 dance moves for begginers", channel: nil, thumbnailUrlString: "https://img.youtube.com/vi/ujREEgxEP7g/hqdefault.jpg")) {
+                        openURL(URL(string: "https://youtu.be/ujREEgxEP7g")!)
+                    }
+                    
+                    
+                    ForEach(viewModel.videos) { videoInfo in
+                        TutorialButton(info: videoInfo) {
+                            print("DEBUG: video button Tapped \(videoInfo.title)")
+                            openURL(URL(string: "https://youtu.be/\(videoInfo.id)")!)
                             
-                            viewModel.getVideoData()
-                            
-                        }
-                        TutorialButton {
-                            print("DEBUG: button tapped")
-                        }
-                        TutorialButton {
-                            print("DEBUG: button tapped")
-                        }
-                        
-                        TutorialButton {
-                            print("DEBUG: button tapped")
                         }
                     }
-                    .padding(.leading, 20)
                 }
-                
+                .padding(.leading, 20)
             }
-            
-            
+            .onAppear {
+                // Youtube API 할당량 돌아오면 재실험
+//                viewModel.fetchVideoData()
+                
+                print("DEBUG: wow")
+                viewModel.videos = [
+                    YoutubeVideo(id: "1WIA6Yvj8Yg", title: "HIP HOP Dance Choreography Tutorial for Beginners - Free Dance Class at Home", channel: nil, thumbnailUrlString: "https://img.youtube.com/vi/1WIA6Yvj8Yg/hqdefault.jpg")
+                    
+                ]
+            }
             
             Spacer()
         }
