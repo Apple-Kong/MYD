@@ -100,22 +100,22 @@ struct MusicGrid: View {
         ZStack {
                 
             VStack {
-                HStack {
-                Text("음악 취향")
-                    .font(.largeTitle)
-                    .fontWeight(.bold)
-                .foregroundColor(.white)
-                
-                Text("3개 선택")
-                    .fontWeight(.semibold)
-                    .foregroundColor(.white)
-
-                Spacer()
-            }
-            .frame(height: 50)
-            .padding(.leading, 20)
-            .background(Color("background")
-            .opacity(0.8))
+//                HStack {
+//                Text("음악 취향")
+//                    .font(.largeTitle)
+//                    .fontWeight(.bold)
+//                .foregroundColor(.white)
+//
+//                Text("3개 선택")
+//                    .fontWeight(.semibold)
+//                    .foregroundColor(.white)
+//
+//                Spacer()
+//            }
+//            .frame(height: 50)
+//            .padding(.leading, 20)
+//            .background(Color("background")
+//            .opacity(0.8))
             
                 ScrollView {
                     
@@ -130,7 +130,8 @@ struct MusicGrid: View {
                             MusicButtonView(item: item, items: $selectedItems)
                         }
                     }
-                .padding(.horizontal, totalSpacing)
+                    .padding(.horizontal, totalSpacing)
+                    .padding(.top, 20)
                 }
                 .background(Color("background"))
             }
@@ -141,11 +142,9 @@ struct MusicGrid: View {
                 Spacer()
                 
                 VStack {
-                    Button {
-                        print("DEBUG: button is tapped")
-                        
-                        
-                        
+                    
+                    NavigationLink {
+                        ResultView()
                     } label: {
                         Text("다음")
                             .font(.title2)
@@ -154,11 +153,15 @@ struct MusicGrid: View {
                     }
                     .buttonStyle(PreferenceButtonStyle())
                     .padding(20)
+                    
                 }
                 .frame(height: 80)
                 .background(Color("background"))
             }
         }
+        .navigationTitle(
+            Text("음악 취향")
+        )
     }
 }
 

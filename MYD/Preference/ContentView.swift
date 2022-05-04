@@ -11,67 +11,85 @@ struct ContentView: View {
     
     // 선택한 선택지를 담는 어레이 구현 필요 [ ]
     var body: some View {
-        VStack {
-            
-            Spacer()
-            
+        NavigationView {
             VStack {
-                Text("Q.")
-                    .font(.largeTitle)
-                    .fontWeight(.bold)
-                    .foregroundColor(.white)
+                VStack {
+                    Text("Q.")
+                        .font(.largeTitle)
+                        .fontWeight(.bold)
+                        .foregroundColor(.white)
+                    
+                    Text("왜 춤을 배워보고 싶으신가요?")
+                        .font(.title)
+                        .fontWeight(.bold)
+                        .foregroundColor(.white)
+                }
+                .padding(.vertical, 80)
                 
-                Text("왜 춤을 배워보고 싶으신가요?")
-                    .font(.title)
-                    .fontWeight(.bold)
-                    .foregroundColor(.white)
-            }
+                
+                
+               
             
-            Spacer()
-        
-            VStack {
-                Button {
-                    print("DEBUG: button is tapped")
+                VStack {
+                    Button {
+                        print("DEBUG: button is tapped")
+                        
+                    } label: {
+                        
+                        Text("음악을 듣고 가볍게 리듬을 타고 싶어서")
+                            .foregroundColor(.white)
+                            .font(.title3)
+                            .fontWeight(.bold)
+                        
+                    }
+                    .buttonStyle(PreferenceButtonStyle())
                     
-                } label: {
+                    Button {
+                        print("DEBUG: button is tapped")
+                        
+                    } label: {
+                        
+                        Text("친구들과 영상을 찍기위해")
+                            .foregroundColor(.white)
+                            .font(.title3)
+                            .fontWeight(.bold)
+                        
+                    }
+                    .buttonStyle(PreferenceButtonStyle())
                     
-                    Text("음악을 듣고 가볍게 리듬을 타고 싶어서")
+                    Button {
+                        print("DEBUG: button is tapped")
+                    } label: {
+                
+                        
+                    Text("멋진 무대에서 공연해보고 싶어서")
                         .foregroundColor(.white)
                         .font(.title3)
                         .fontWeight(.bold)
-                    
+                    }
+                    .buttonStyle(PreferenceButtonStyle())
                 }
-                .buttonStyle(PreferenceButtonStyle())
                 
-                Button {
-                    print("DEBUG: button is tapped")
-                    
+                Spacer()
+                
+                NavigationLink {
+                    MusicGrid()
                 } label: {
-                    
-                    Text("친구들과 영상을 찍기위해")
-                        .foregroundColor(.white)
-                        .font(.title3)
+                    Text("다음")
+                        .font(.title2)
                         .fontWeight(.bold)
-                    
+                        .foregroundColor(.white)
                 }
                 .buttonStyle(PreferenceButtonStyle())
                 
-                Button {
-                    print("DEBUG: button is tapped")
-                } label: {
-            
-                    
-                Text("멋진 무대에서 공연해보고 싶어서")
-                    .foregroundColor(.white)
-                    .font(.title3)
-                    .fontWeight(.bold)
-                }
-                .buttonStyle(PreferenceButtonStyle())
+                
             }
+            .padding(.horizontal, 20)
+            .navigationBarHidden(true)
             
         }
-        .padding(20)
         .background(Color("background"))
+        
     }
 }
 
