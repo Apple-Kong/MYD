@@ -7,40 +7,34 @@
 
 import Foundation
 
-
 class ResultViewModel: ObservableObject {
     
+    // MARK: - Properties
+    @Published var videos: [YoutubeVideo] = []
+    
     let manager = YoutubeManager()
+    var resultGenre = "hiphop"
     
-    @Published var videos: [YoutubeSearchList] = []
-    
-    var resultGenre = ""
-    
+    //MARK: - Methods
     func getThumbnailImageURL() -> URL? {
         
         return nil
     }
     
-    // 비디오 ID 를 가져와서 그 목록을 가지고 다시 비디오 데이터 가져오기
-    func getVideoData() -> [String] {
-        
-        manager.fetchVideoIDs(query: "hiphop dance tutorial") { videoIDs, error in
-            
-            guard error == nil else {
-                print("DEBUG: \(error?.localizedDescription)")
+    func fetchVideoData() {
+        manager.fetchVideoInfoList(query: resultGenre + " dance tutorial") { items, error in
+            guard error != nil else {
+                    //에러 핸들링 -> 경고 메세지 전달
+                print("DEBUG: \(error?.localizedDescription ?? "")")
                 return
             }
+            var result: [YoutubeVideo] = []
             
-            self.manager.fetchVideoInfoList(videoIDs: videoIDs) { videoInfos, error in
-                guard error == nil else {
-                    print("DEBUG: \(error?.localizedDescription)")
-                    return
-                }
-                
-                print("DEBUG: Completion handling... in fetchVideoInfoList ")
+            for item in items {
+                result.append(YoutubeVideo(title: item.snippet.title, channel: nil, thumbnailUrlString: item.snippet.thumbnails.high?.url))
             }
+            
+            self.videos = result
         }
-        return []
     }
 }
-
