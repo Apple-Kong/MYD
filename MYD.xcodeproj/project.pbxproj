@@ -27,6 +27,8 @@
 		C0BEF08D281E4E1000128206 /* PreferenceButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BEF08C281E4E1000128206 /* PreferenceButtonView.swift */; };
 		C0BEF08F281E523000128206 /* MusicPreferenceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BEF08E281E523000128206 /* MusicPreferenceView.swift */; };
 		C0BEF091281E77F300128206 /* DiagonalFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BEF090281E77F300128206 /* DiagonalFrame.swift */; };
+		C0CD0D27282390260020C15C /* VideoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CD0D26282390260020C15C /* VideoViewModel.swift */; };
+		C0CD0D29282390580020C15C /* CustomControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CD0D28282390580020C15C /* CustomControlView.swift */; };
 		C0EE6A33281FA0150055B716 /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EE6A32281FA0150055B716 /* ContentViewModel.swift */; };
 		C0EE6A39281FC94F0055B716 /* Music.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EE6A38281FC94F0055B716 /* Music.swift */; };
 		C0F988C22820B42A00997E93 /* ResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F988C12820B42A00997E93 /* ResultView.swift */; };
@@ -78,6 +80,8 @@
 		C0BEF08C281E4E1000128206 /* PreferenceButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceButtonView.swift; sourceTree = "<group>"; };
 		C0BEF08E281E523000128206 /* MusicPreferenceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPreferenceView.swift; sourceTree = "<group>"; };
 		C0BEF090281E77F300128206 /* DiagonalFrame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiagonalFrame.swift; sourceTree = "<group>"; };
+		C0CD0D26282390260020C15C /* VideoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewModel.swift; sourceTree = "<group>"; };
+		C0CD0D28282390580020C15C /* CustomControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomControlView.swift; sourceTree = "<group>"; };
 		C0EE6A32281FA0150055B716 /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
 		C0EE6A34281FBDDB0055B716 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		C0EE6A38281FC94F0055B716 /* Music.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Music.swift; sourceTree = "<group>"; };
@@ -145,6 +149,7 @@
 			children = (
 				C0909B242822D44500F2585F /* MusicViewModel.swift */,
 				C0F988CC2820F38500997E93 /* ResultViewModel.swift */,
+				C0CD0D26282390260020C15C /* VideoViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -247,6 +252,7 @@
 			children = (
 				C03EC8AB281F7C2500B3ECD0 /* VideoView.swift */,
 				C0909B2C28235E9500F2585F /* CustomVideoPlayer.swift */,
+				C0CD0D28282390580020C15C /* CustomControlView.swift */,
 			);
 			path = Video;
 			sourceTree = "<group>";
@@ -418,9 +424,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				C0909B252822D44500F2585F /* MusicViewModel.swift in Sources */,
+				C0CD0D29282390580020C15C /* CustomControlView.swift in Sources */,
 				C0F988CB2820F37200997E93 /* SearchResponse.swift in Sources */,
 				C0909B222822D3EE00F2585F /* MusicButtonView.swift in Sources */,
 				C0F988CD2820F38500997E93 /* ResultViewModel.swift in Sources */,
+				C0CD0D27282390260020C15C /* VideoViewModel.swift in Sources */,
 				C0EE6A33281FA0150055B716 /* ContentViewModel.swift in Sources */,
 				C0909B1A2822B24D00F2585F /* Constant.swift in Sources */,
 				C0BEF08F281E523000128206 /* MusicPreferenceView.swift in Sources */,
