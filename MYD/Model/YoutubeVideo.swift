@@ -13,7 +13,7 @@ struct YoutubeVideo: Hashable, Identifiable {
     
     //MARK: - Stored
     let id: String
-    let title: String
+    var title: String
     let channel: String?
     let thumbnailUrlString: String?
     

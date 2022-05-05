@@ -14,6 +14,11 @@ enum MusicGenre: String, CaseIterable, Equatable {
     case KPOP
     case POP
     case Rock
+    case Funk
+    case Indy
+    case EDM
+    case Jazz
+    
     
     
     var koreanText: String {
@@ -24,6 +29,12 @@ enum MusicGenre: String, CaseIterable, Equatable {
             return "붐뱁"
         case .Rock:
             return "락"
+        case .Indy:
+            return "인디"
+        case .RnB:
+            return "R&B"
+        case .Jazz:
+            return "재즈"
         default:
             return self.rawValue
         }

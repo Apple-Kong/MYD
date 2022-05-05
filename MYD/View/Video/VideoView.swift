@@ -23,25 +23,53 @@ struct VideoView: View {
     @StateObject private var viewModel = PlayerViewModel()
     
     var body: some View {
-        CustomVideoPlayer(playerVM: viewModel)
-            .scaledToFill()
-            .ignoresSafeArea()
-            .overlay(
-                CustomControlsView(playerVM: viewModel)
-                    .frame(width: 300, height: 100)
+        ZStack {
+            
+            
+            CustomVideoPlayer(playerVM: viewModel)
+                .scaledToFill()
+                .ignoresSafeArea()
+                .onAppear {
+                    guard let path = Bundle.main.path(forResource: "popping_1", ofType:"mp4") else {
+                                debugPrint("popping_0.mp4 not found")
+                                return
+                        }
+                    //로컬 url
+                    let url = URL(fileURLWithPath: path)
                     
-            , alignment: .bottom)
-            .onAppear {
-                guard let path = Bundle.main.path(forResource: "popping_1", ofType:"mp4") else {
-                            debugPrint("popping_0.mp4 not found")
-                            return
-                    }
-                //로컬 url
-                let url = URL(fileURLWithPath: path)
+                    viewModel.setCurrentItem(AVPlayerItem(url: url))
+                    viewModel.player.play()
+                    
+                }
+                .onDisappear {
+                    viewModel.player.pause()
+                }
+//
+//            CustomControlsView(playerVM: viewModel)
+//                .frame(width: 300, height: 100)
+            
+            VStack {
                 
-                viewModel.setCurrentItem(AVPlayerItem(url: url))
-                viewModel.player.play()
+                Spacer()
+                NavigationLink {
+                    ResultView()
+                } label: {
+                    Text("다음")
+                        .font(.title3)
+                        .fontWeight(.bold)
+                        .foregroundColor(.white)
+                }
+                .buttonStyle(PreferenceButtonStyle())
+                .frame(width: 360)
+                
             }
+            .padding()
+            
+            
+        }
+        .navigationBarHidden(true)
+        
+        
     }
 }
 

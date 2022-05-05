@@ -39,8 +39,8 @@ struct MusicButtonView: View {
                 VStack {
                     HStack {
                         Text(item.koreanText)
-                            .font(.title3)
-                            .fontWeight(.bold)
+                            .font(.body)
+                            .fontWeight(.semibold)
                             .foregroundColor(.white)
                             .padding(20)
     
@@ -56,7 +56,7 @@ struct MusicButtonView: View {
         .if(items.contains(item)) { view in
             view.overlay(
                 RoundedRectangle(cornerRadius: 10)
-                    .stroke(lineWidth: 2)
+                    .stroke(lineWidth: 1.5)
                     .fill(Color("AccentColor"))
             )
         }

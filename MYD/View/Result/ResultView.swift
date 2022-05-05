@@ -4,8 +4,56 @@
 //
 //  Created by GOngTAE on 2022/05/03.
 //
+//                    TutorialButton(info: YoutubeVideo(id: "ujREEgxEP7g", title: "3 dance moves for begginers", channel: nil, thumbnailUrlString: "https://img.youtube.com/vi/ujREEgxEP7g/hqdefault.jpg")) {
+//                        openURL(URL(string: "https://youtu.be/ujREEgxEP7g")!)
+//                    }
+                    
+//                    ForEach(
+//
+                    
+
 
 import SwiftUI
+import Kingfisher
+
+
+class ResultViewModel: ObservableObject {
+    
+    // MARK: - Properties
+    @Published var videos: [YoutubeVideo] = []
+    
+    let manager = YoutubeManager()
+    var resultGenre = "hiphop"
+    
+    init() {
+        fetchVideoDataWtihPlaylistID()
+    }
+    
+    func fetchVideoDataWtihPlaylistID() {
+        manager.fetchVideoInfo(playlistID: "PLOuzAY2stNg71WMno7PemBkhKEiNOrWuu") { response, error in
+            
+        
+            guard error == nil else {
+                return
+            }
+            guard let response = response else {
+                return
+            }
+
+            
+            var result: [YoutubeVideo] = []
+    
+            
+            for item in response.items {
+                result.append(YoutubeVideo(id: item.snippet.resourceId.videoId, title: item.snippet.title, channel: item.snippet.channelTitle, thumbnailUrlString: item.snippet.thumbnails.high.url))
+                print("DEBUG: title is ..\(item.snippet.title)")
+            }
+            
+            self.videos = result
+        }
+    }
+}
+
 
 struct ResultView: View {
     
@@ -36,8 +84,6 @@ struct ResultView: View {
             }
             .padding(.trailing, hInset)
             
-       
-           
             
             Image("hiphop_dance")
                 .resizable()
@@ -59,33 +105,44 @@ struct ResultView: View {
             // 수평 스크롤 뷰
             ScrollView(.horizontal, showsIndicators: false) {
                 LazyHGrid(rows: [
-                    GridItem(.fixed(200), spacing: 20)
-                ], spacing: 20) {
-                
-                    TutorialButton(info: YoutubeVideo(id: "ujREEgxEP7g", title: "3 dance moves for begginers", channel: nil, thumbnailUrlString: "https://img.youtube.com/vi/ujREEgxEP7g/hqdefault.jpg")) {
-                        openURL(URL(string: "https://youtu.be/ujREEgxEP7g")!)
-                    }
-                    
-                    
-                    ForEach(viewModel.videos) { videoInfo in
-                        TutorialButton(info: videoInfo) {
-                            print("DEBUG: video button Tapped \(videoInfo.title)")
-                            openURL(URL(string: "https://youtu.be/\(videoInfo.id)")!)
+                    GridItem(.fixed(180), spacing: 0)
+                ], spacing: 10) {
+            
+                    ForEach(viewModel.videos, id: \.self) { video in
+                        Button {
+                            print("DEBUG: video button Tapped \(video.title)")
+                            openURL(URL(string: "https://www.youtube.com/watch?v=\(video.id)")!)
+                        } label: {
+                            VStack(alignment: .leading) {
+                                //이미지 비동기 호출 및 플레이스홀더
+                                
+                                KFImage(video.thumbnailURL)
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fill)
+                                    .frame(height: 120)
+                                    .clipped()
+                                
+                                
+                                Text(video.title)
+                                    .font(.footnote)
+                                    .foregroundColor(.white)
+                                    .fontWeight(.semibold)
+                                    .lineLimit(3)
+                                    .multilineTextAlignment(.leading)
+                                    .padding(.horizontal, 12)
+//                                    .padding(.top, 14)
+                                    
+                                Spacer()
+
+                            }
+                            .frame(width: 160, height: 180)
+                            .background(Color("Container"))
+                            .cornerRadius(10)
                             
                         }
                     }
                 }
                 .padding(.leading, 20)
-            }
-            .onAppear {
-     //            Youtube API 할당량 돌아오면 재실험 🚧
-                viewModel.fetchVideoData()
-//                
-//                //Mockup data
-//                viewModel.videos = [
-//                    YoutubeVideo(id: "1WIA6Yvj8Yg", title: "HIP HOP Dance Choreography Tutorial for Beginners - Free Dance Class at Home", channel: nil, thumbnailUrlString: "https://img.youtube.com/vi/1WIA6Yvj8Yg/hqdefault.jpg")
-//                    
-//                ]
             }
             Spacer()
         }
@@ -93,6 +150,7 @@ struct ResultView: View {
         .navigationBarBackButtonHidden(true)
         .navigationBarTitleDisplayMode(.inline)
         .navigationTitle("Result")
+        
         
     }
 }

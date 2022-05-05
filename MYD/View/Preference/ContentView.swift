@@ -9,6 +9,9 @@ import SwiftUI
 
 struct ContentView: View {
     
+    let choice = ["음악을 듣고 가볍게 리듬을 타고 싶어서", "친구들과 영상을 찍기위해", "멋진 무대에서 공연해보고 싶어서"]
+    
+    @State var selectedItems: [String] = []
     // 선택한 선택지를 담는 어레이 구현 필요 [ ]
     var body: some View {
         NavigationView {
@@ -27,43 +30,9 @@ struct ContentView: View {
                 .padding(.vertical, 80)
             
                 VStack {
-                    Button {
-                        print("DEBUG: button is tapped")
-                        
-                    } label: {
-                        
-                        Text("음악을 듣고 가볍게 리듬을 타고 싶어서")
-                            .foregroundColor(.white)
-                            .font(.title3)
-                            .fontWeight(.bold)
-                        
+                    ForEach(0..<3) { index in
+                        PreferenceButtonView(text: choice[index], items: $selectedItems)
                     }
-                    .buttonStyle(PreferenceButtonStyle())
-                    
-                    Button {
-                        print("DEBUG: button is tapped")
-                        
-                    } label: {
-                        
-                        Text("친구들과 영상을 찍기위해")
-                            .foregroundColor(.white)
-                            .font(.title3)
-                            .fontWeight(.bold)
-                        
-                    }
-                    .buttonStyle(PreferenceButtonStyle())
-                    
-                    Button {
-                        print("DEBUG: button is tapped")
-                    } label: {
-                
-                        
-                    Text("멋진 무대에서 공연해보고 싶어서")
-                        .foregroundColor(.white)
-                        .font(.title3)
-                        .fontWeight(.bold)
-                    }
-                    .buttonStyle(PreferenceButtonStyle())
                 }
                 
                 Spacer()
@@ -72,7 +41,7 @@ struct ContentView: View {
                     MusicPreferenceView()
                 } label: {
                     Text("다음")
-                        .font(.title2)
+                        .font(.title3)
                         .fontWeight(.bold)
                         .foregroundColor(.white)
                 }
@@ -94,7 +63,7 @@ struct ContentView: View {
 struct PreferenceButtonStyle: ButtonStyle {
     func makeBody(configuration: Self.Configuration) -> some View {
         configuration.label
-            .frame(height: 64)
+            .frame(height: 60)
             .frame(maxWidth: .infinity)
             .background(configuration.isPressed ? Color("AccentColor") : Color("Container"))
             .cornerRadius(10)

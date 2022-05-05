@@ -30,28 +30,33 @@ struct MusicPreferenceView: View {
                     .padding(.top, 20)
                 }
                 .background(Color("background"))
-            }
-            
-            
-            VStack {
-                Spacer()
+                
                 
                 VStack {
                     NavigationLink {
-                        ResultView()
+                        VideoView()
                     } label: {
                         Text("다음")
-                            .font(.title2)
+                            .font(.title3)
                             .fontWeight(.bold)
                             .foregroundColor(.white)
                     }
                     .buttonStyle(PreferenceButtonStyle())
-                    .padding(20)
+                    .padding(.horizontal, 20)
+                
                 }
                 .frame(height: 80)
-                .background(Color("background"))
+            
             }
+            
+            
+//            VStack {
+//                Spacer()
+//
+//
+//            }
         }
+        .background(Color("background"))
         .navigationTitle(
             Text("음악 취향")
         )
