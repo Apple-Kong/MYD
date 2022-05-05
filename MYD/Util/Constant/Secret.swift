@@ -8,5 +8,5 @@
 import Foundation
 
 class Secret {
-    
+    static let youtubeAppKey = "AIzaSyC9mBcLMbYAyXvTaSddxzS3HYsCh1Z6MHo"
 }

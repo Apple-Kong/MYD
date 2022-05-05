@@ -8,10 +8,8 @@
 import SwiftUI
 
 struct MusicPreferenceView: View {
-    
     //간격 한번에 설정하기 위한 변수
     var totalSpacing: CGFloat = 20
-    
     
     @State var selectedItems: [MusicGenre] = []
     
@@ -25,7 +23,6 @@ struct MusicPreferenceView: View {
                     ], spacing: totalSpacing
                     ) {
                         ForEach(MusicGenre.allCases, id: \.self) { item in
-                
                             MusicButtonView(item: item, items: $selectedItems)
                         }
                     }
@@ -37,7 +34,6 @@ struct MusicPreferenceView: View {
             
             
             VStack {
-            
                 Spacer()
                 
                 VStack {

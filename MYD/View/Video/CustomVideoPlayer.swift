@@ -12,7 +12,6 @@ import Combine
 
 final class PlayerViewModel: ObservableObject {
     let player = AVPlayer()
-//    @Published var isInPipMode: Bool = false
     @Published var isPlaying = false
     
     @Published var isEditingCurrentTime = false
