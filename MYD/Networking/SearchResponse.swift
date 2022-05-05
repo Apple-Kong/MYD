@@ -46,33 +46,37 @@ struct YoutubeSearchList: Codable {
 struct YouTubeSearchItem: Codable {
     let id: YouTubeId
     let snippet: Snippet
+    
+    struct YouTubeId: Codable {
+        let kind: String
+        let videoId: String
+    }
+
+    struct Snippet: Codable {
+        let title: String
+        let description: String
+        let thumbnails: ThumbnailInfo
+        
+        struct ThumbnailInfo: Codable {
+            let `default`: ThumbDefaultInfo?
+            let high: ThumbHighInfo?
+            
+            
+            struct ThumbDefaultInfo: Codable {
+                let url: String
+                let width: Int
+                let height: Int
+            }
+
+            struct ThumbHighInfo: Codable {
+                let url: String
+                let width: Int
+                let height: Int
+            }
+        }
+    }
 }
 
-struct YouTubeId: Codable {
-    let kind: String
-    let videoId: String
-}
 
-struct Snippet: Codable {
-    let title: String
-    let description: String
-    let thumbnails: ThumbnailInfo
-}
 
-struct ThumbnailInfo: Codable {
-    let `default`: ThumbDefaultInfo?
-    let high: ThumbHighInfo?
-}
-
-struct ThumbDefaultInfo: Codable {
-    let url: String
-    let width: Int
-    let height: Int
-}
-
-struct ThumbHighInfo: Codable {
-    let url: String
-    let width: Int
-    let height: Int
-}
 

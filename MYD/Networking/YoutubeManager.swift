@@ -70,7 +70,7 @@ class YoutubeManager {
             }
     }
     
-    func fetchVideoInfo(playlistID: String) {
+    func fetchVideoInfo(playlistID: String, completion: @escaping ([YoutubePlaylistItem], Error?) -> Void) {
         let parameters: [String: String] = [
             "key" : Secret.youtubeAppKey,
             "part" : "snippet",
@@ -84,10 +84,11 @@ class YoutubeManager {
                 switch response.result {
                 case .success(let response):
                     print("DEBUG: fetchVideoInfo with playlistID - \(response.items[0].snippet.title)")
+                    completion(response.items, nil)
                 case .failure(let error):
                     print("DEBUG: \(error.localizedDescription)")
+                    completion([], error)
                 }
-                
             }
     }
 }
@@ -96,14 +97,16 @@ class YoutubeManager {
 // MARK: - Welcome
 struct PlaylistResponse: Codable {
     let kind, etag, nextPageToken: String
-    let items: [Item]
+    let items: [YoutubePlaylistItem]
     let pageInfo: PageInfo
-    
-    // MARK: - Item
-    struct Item: Codable {
-        let kind, etag, id: String
-        let snippet: Snippet
-    }
+}
+
+// MARK: - Item
+struct YoutubePlaylistItem: Codable {
+    let kind: String
+    let etag: String
+    let id: String
+    let snippet: Snippet
     
     // MARK: - Snippet
     struct Snippet: Codable {
@@ -114,6 +117,16 @@ struct PlaylistResponse: Codable {
         let position: Int
         let resourceID: ResourceID
         let videoOwnerChannelTitle, videoOwnerChannelID: String
+        
+        // MARK: - ResourceID
+        struct ResourceID: Codable {
+            let kind, videoID: String
+
+            enum CodingKeys: String, CodingKey {
+                case kind
+                case videoID = "videoId"
+            }
+        }
 
         enum CodingKeys: String, CodingKey {
             case publishedAt
@@ -146,18 +159,9 @@ struct PlaylistResponse: Codable {
             }
         }
         
-        
-        // MARK: - ResourceID
-        struct ResourceID: Codable {
-            let kind, videoID: String
-
-            enum CodingKeys: String, CodingKey {
-                case kind
-                case videoID = "videoId"
-            }
-        }
     }
 }
+
 
 
 

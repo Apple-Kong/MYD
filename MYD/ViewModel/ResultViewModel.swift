@@ -37,4 +37,18 @@ class ResultViewModel: ObservableObject {
             self.videos = result
         }
     }
+    
+    func fetchVideoDataWtihPlaylistID() {
+        manager.fetchVideoInfo(playlistID: "") { items, error in
+            guard error != nil else {
+                return
+            }
+            
+            var result: [YoutubeVideo] = []
+            
+            for item in items {
+                result.append(YoutubeVideo(id: item.id, title: item.snippet.title, channel: item.snippet.channelTitle, thumbnailUrlString: item.snippet.thumbnails.high.url))
+            }
+        }
+    }
 }
