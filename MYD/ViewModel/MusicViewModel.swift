@@ -10,4 +10,5 @@ import Foundation
 
 class MusicViewModel: ObservableObject {
     @Published var items: [MusicGenre] = []
+    
 }

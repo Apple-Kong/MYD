@@ -17,18 +17,14 @@ struct MusicPreferenceView: View {
     
     var body: some View {
         ZStack {
-                
             VStack {
-            
                 ScrollView {
-                    
                     LazyVGrid(columns: [
                         GridItem(.flexible(), spacing: totalSpacing),
                         GridItem(.flexible())
                     ], spacing: totalSpacing
                     ) {
                         ForEach(MusicGenre.allCases, id: \.self) { item in
-                
                 
                             MusicButtonView(item: item, items: $selectedItems)
                         }
@@ -41,11 +37,10 @@ struct MusicPreferenceView: View {
             
             
             VStack {
-                
+            
                 Spacer()
                 
                 VStack {
-                    
                     NavigationLink {
                         ResultView()
                     } label: {
@@ -56,7 +51,6 @@ struct MusicPreferenceView: View {
                     }
                     .buttonStyle(PreferenceButtonStyle())
                     .padding(20)
-                    
                 }
                 .frame(height: 80)
                 .background(Color("background"))
@@ -75,7 +69,6 @@ struct MusicPreferenceView: View {
 struct MusicPreferenceView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-
             MusicPreferenceView()
                 .preferredColorScheme(.dark)
         }

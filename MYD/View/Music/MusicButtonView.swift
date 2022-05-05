@@ -17,6 +17,8 @@ struct MusicButtonView: View {
     var body: some View {
         
         Button {
+            
+            //ViewModel 로 이사가야할 로직 🚧
             if items.contains(item) {
                 
                 items.removeAll { $0 == item }

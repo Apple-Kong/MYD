@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ResultView: View {
+    
     @Environment(\.openURL) var openURL
     @StateObject var viewModel = ResultViewModel()
     

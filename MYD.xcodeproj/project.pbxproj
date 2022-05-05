@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C03EC8AA281F7C1000B3ECD0 /* VideoSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03EC8A9281F7C1000B3ECD0 /* VideoSliderView.swift */; };
 		C03EC8AC281F7C2500B3ECD0 /* VideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03EC8AB281F7C2500B3ECD0 /* VideoView.swift */; };
 		C0909B172822B1B900F2585F /* YoutubeVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0909B162822B1B900F2585F /* YoutubeVideo.swift */; };
 		C0909B1A2822B24D00F2585F /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0909B192822B24D00F2585F /* Constant.swift */; };
@@ -15,6 +14,9 @@
 		C0909B202822D3AA00F2585F /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0909B1F2822D3AA00F2585F /* View.swift */; };
 		C0909B222822D3EE00F2585F /* MusicButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0909B212822D3EE00F2585F /* MusicButtonView.swift */; };
 		C0909B252822D44500F2585F /* MusicViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0909B242822D44500F2585F /* MusicViewModel.swift */; };
+		C0909B2A28235A2400F2585F /* popping_1.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = C0909B2828235A2400F2585F /* popping_1.mp4 */; };
+		C0909B2B28235A2400F2585F /* popping_0.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = C0909B2928235A2400F2585F /* popping_0.mp4 */; };
+		C0909B2D28235E9500F2585F /* CustomVideoPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0909B2C28235E9500F2585F /* CustomVideoPlayer.swift */; };
 		C0BEF063281E4D4600128206 /* MYDApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BEF062281E4D4600128206 /* MYDApp.swift */; };
 		C0BEF065281E4D4600128206 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BEF064281E4D4600128206 /* ContentView.swift */; };
 		C0BEF067281E4D4700128206 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0BEF066281E4D4700128206 /* Assets.xcassets */; };
@@ -53,7 +55,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		C03EC8A9281F7C1000B3ECD0 /* VideoSliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoSliderView.swift; sourceTree = "<group>"; };
 		C03EC8AB281F7C2500B3ECD0 /* VideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoView.swift; sourceTree = "<group>"; };
 		C0909B162822B1B900F2585F /* YoutubeVideo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeVideo.swift; sourceTree = "<group>"; };
 		C0909B192822B24D00F2585F /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
@@ -61,6 +62,9 @@
 		C0909B1F2822D3AA00F2585F /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		C0909B212822D3EE00F2585F /* MusicButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicButtonView.swift; sourceTree = "<group>"; };
 		C0909B242822D44500F2585F /* MusicViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicViewModel.swift; sourceTree = "<group>"; };
+		C0909B2828235A2400F2585F /* popping_1.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = popping_1.mp4; sourceTree = "<group>"; };
+		C0909B2928235A2400F2585F /* popping_0.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = popping_0.mp4; sourceTree = "<group>"; };
+		C0909B2C28235E9500F2585F /* CustomVideoPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomVideoPlayer.swift; sourceTree = "<group>"; };
 		C0BEF05F281E4D4600128206 /* MYD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MYD.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0BEF062281E4D4600128206 /* MYDApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MYDApp.swift; sourceTree = "<group>"; };
 		C0BEF064281E4D4600128206 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -188,6 +192,8 @@
 		C0BEF061281E4D4600128206 /* MYD */ = {
 			isa = PBXGroup;
 			children = (
+				C0909B2928235A2400F2585F /* popping_0.mp4 */,
+				C0909B2828235A2400F2585F /* popping_1.mp4 */,
 				C0909B272822D4C600F2585F /* View */,
 				C0909B232822D40900F2585F /* ViewModel */,
 				C0909B262822D46A00F2585F /* Model */,
@@ -239,8 +245,8 @@
 		C0EE6A36281FC9180055B716 /* Video */ = {
 			isa = PBXGroup;
 			children = (
-				C03EC8A9281F7C1000B3ECD0 /* VideoSliderView.swift */,
 				C03EC8AB281F7C2500B3ECD0 /* VideoView.swift */,
+				C0909B2C28235E9500F2585F /* CustomVideoPlayer.swift */,
 			);
 			path = Video;
 			sourceTree = "<group>";
@@ -383,8 +389,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C0909B2B28235A2400F2585F /* popping_0.mp4 in Resources */,
 				C0BEF06A281E4D4700128206 /* Preview Assets.xcassets in Resources */,
 				C0BEF067281E4D4700128206 /* Assets.xcassets in Resources */,
+				C0909B2A28235A2400F2585F /* popping_1.mp4 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -423,11 +431,11 @@
 				C0909B172822B1B900F2585F /* YoutubeVideo.swift in Sources */,
 				C0909B1C2822B27700F2585F /* Secret.swift in Sources */,
 				C0BEF065281E4D4600128206 /* ContentView.swift in Sources */,
+				C0909B2D28235E9500F2585F /* CustomVideoPlayer.swift in Sources */,
 				C0BEF08D281E4E1000128206 /* PreferenceButtonView.swift in Sources */,
 				C0F988C22820B42A00997E93 /* ResultView.swift in Sources */,
 				C0909B202822D3AA00F2585F /* View.swift in Sources */,
 				C0BEF063281E4D4600128206 /* MYDApp.swift in Sources */,
-				C03EC8AA281F7C1000B3ECD0 /* VideoSliderView.swift in Sources */,
 				C0F988C42820B71800997E93 /* TutorialButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
