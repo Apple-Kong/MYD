@@ -15,7 +15,7 @@ class YoutubeManager {
     func fetchVideoIDs(query: String, completion: @escaping ([VideoID], Error?) -> Void) {
         
         let parameters: [String: String] = [
-            "key" : "AIzaSyC9mBcLMbYAyXvTaSddxzS3HYsCh1Z6MHo",
+            "key" : Secret.youtubeAppKey,
             "type" : "video",
             "q" : query
         ]
@@ -46,7 +46,7 @@ class YoutubeManager {
     func fetchVideoInfoList(query: String, completion: @escaping ([YouTubeSearchItem], Error?) -> Void) {
         
         let parameters: [String: String] = [
-            "key" : "AIzaSyC9mBcLMbYAyXvTaSddxzS3HYsCh1Z6MHo",
+            "key" : Secret.youtubeAppKey,
             "type" : "video",
             "maxResults" : "15",
             "part" : "snippet",
