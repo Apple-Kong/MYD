@@ -13,9 +13,9 @@ import UIKit
  1. AVPlayer 세팅 [✅]
  2. AVPlayerLayer -> UIView [✅]
  3. SwiftUI 에 UIView 표시하기 [✅]
- 4. UIKit <-> SwiftUI 서로 데이터 신호 주고 받는 거 공부하기 [ ]
+ 4. UIKit <-> SwiftUI 서로 데이터 신호 주고 받는 거 공부하기 [✅]
  https://developer.apple.com/tutorials/swiftui/interfacing-with-uikit
- 5. Combine 을 이용한 비디오 신호 비동기 커뮤니케이션
+ 5. Combine 을 이용한 비디오 신호 비동기 커뮤니케이션 [✅]
  https://www.createwithswift.com/custom-video-player-with-avkit-and-swiftui-supporting-picture-in-picture/
  */
 

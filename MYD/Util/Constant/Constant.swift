@@ -10,4 +10,5 @@ import Foundation
 class Constant {
     //MARK: - Youtube
     static let search = "https://www.googleapis.com/youtube/v3/search"
+    static let playlistItems = "https://youtube.googleapis.com/youtube/v3/playlistItems"
 }

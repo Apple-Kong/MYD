@@ -13,7 +13,7 @@ import SwiftUI
 struct MYDApp: App {
     var body: some Scene {
         WindowGroup {
-            VideoView()
+            ResultView()
                 .preferredColorScheme(.dark)
         }
     }

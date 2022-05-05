@@ -78,14 +78,14 @@ struct ResultView: View {
                 .padding(.leading, 20)
             }
             .onAppear {
-                // Youtube API 할당량 돌아오면 재실험 🚧
-//                viewModel.fetchVideoData()
-                
-                //Mockup data
-                viewModel.videos = [
-                    YoutubeVideo(id: "1WIA6Yvj8Yg", title: "HIP HOP Dance Choreography Tutorial for Beginners - Free Dance Class at Home", channel: nil, thumbnailUrlString: "https://img.youtube.com/vi/1WIA6Yvj8Yg/hqdefault.jpg")
-                    
-                ]
+     //            Youtube API 할당량 돌아오면 재실험 🚧
+                viewModel.fetchVideoData()
+//                
+//                //Mockup data
+//                viewModel.videos = [
+//                    YoutubeVideo(id: "1WIA6Yvj8Yg", title: "HIP HOP Dance Choreography Tutorial for Beginners - Free Dance Class at Home", channel: nil, thumbnailUrlString: "https://img.youtube.com/vi/1WIA6Yvj8Yg/hqdefault.jpg")
+//                    
+//                ]
             }
             Spacer()
         }

@@ -25,10 +25,6 @@ struct ContentView: View {
                         .foregroundColor(.white)
                 }
                 .padding(.vertical, 80)
-                
-                
-                
-               
             
                 VStack {
                     Button {

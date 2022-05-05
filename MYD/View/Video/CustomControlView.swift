@@ -12,22 +12,6 @@ struct CustomControlsView: View {
     
     var body: some View {
         HStack {
-            if playerVM.isPlaying == false {
-                Button(action: {
-                    playerVM.player.play()
-                }, label: {
-                    Image(systemName: "play.circle")
-                        .imageScale(.large)
-                })
-            } else {
-                Button(action: {
-                    playerVM.player.pause()
-                }, label: {
-                    Image(systemName: "pause.circle")
-                        .imageScale(.large)
-                })
-            }
-            
             if let duration = playerVM.duration {
                 Slider(value: $playerVM.currentTime, in: 0...duration, onEditingChanged: { isEditing in
                     playerVM.isEditingCurrentTime = isEditing
@@ -35,6 +19,26 @@ struct CustomControlsView: View {
             } else {
                 Spacer()
             }
+            
+    
+            
+//            if playerVM.isPlaying == false {
+//                Button(action: {
+//                    playerVM.player.play()
+//                }, label: {
+//                    Image(systemName: "play.circle")
+//                        .imageScale(.large)
+//                })
+//            } else {
+//                Button(action: {
+//                    playerVM.player.pause()
+//                }, label: {
+//                    Image(systemName: "pause.circle")
+//                        .imageScale(.large)
+//                })
+//            }
+//
+
         }
         .padding()
         .background(.white.opacity(0.9))
